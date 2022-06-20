@@ -30,7 +30,7 @@ class PostItem extends Component {
     }
 
   render() {
-    const { post, auth } = this.props;
+    const { post, auth, showActions } = this.props;
  // Delete button is breaking the web app !! FIXIT
     return (
         <div className="card card-body mb-3">
@@ -47,7 +47,8 @@ class PostItem extends Component {
             <p className="lead">
                 {post.text}
             </p>
-            <button onClick={this.onLikeClick.bind(this, post._id)} 
+            {showActions ? (<span>
+              <button onClick={this.onLikeClick.bind(this, post._id)} 
                 type="button" 
                 className="btn btn-light mr-1">
               <i className={classnames('fas fa-thumbs-up', {
@@ -70,12 +71,17 @@ class PostItem extends Component {
                     <i className='fas fa-times' />
                 </button>
             ) : null }
+            </span>) : null}
             
           </div>
         </div>
       </div>
     )
   }
+}
+
+PostItem.defaultProps = {
+  showActions: true
 }
 
 PostItem.propTypes = {
