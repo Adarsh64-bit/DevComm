@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "social network for developers",
   "main": "server.js",
+  "engines": {
+    "node": "14.17.3"
+  },
   "scripts": {
     "build": "cd client && npm run build",
     "client-install": "npm install --prefix client",
